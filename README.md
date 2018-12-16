@@ -57,7 +57,7 @@ make deploy-logging-app
 ## TODO
 
 - ~Add Grafana configmap for data-source~
-- Add Prometheus deployment
+- ~Add Prometheus deployment~
 - Add Tracing to the sample app
 - Build some dashboards etc.
 
