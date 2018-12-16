@@ -1,15 +1,15 @@
 
-build-sampleapp:
+build-sample-app:
 	docker build sampleapp -t pnyak/grafana-loki-test
 
-push-sampleapp: build-sampleapp
+push-sample-app: build-sampleapp
 	docker push pnyak/grafana-loki-test
 
-deploy-sampleapp:
-	kubectl apply -f manifests/sampleapp.yaml
+deploy-sample-app:
+	kubectl apply -f manifests/sample-app.yaml
 
-delete-sampleapp:
-	kubectl delete -f manifests/sampleapp.yaml
+delete-sample-app:
+	kubectl delete -f manifests/sample-app.yaml
 
 deploy-logging-app:
 	kubectl apply -f manifests/logging-app.yaml
