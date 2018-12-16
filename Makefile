@@ -34,9 +34,18 @@ deploy-grafana:
 delete-grafana:
 	kubectl delete -f manifests/grafana.yaml
 
-deploy-all-loki: deploy-loki deploy-promtail deploy-grafana
+deploy-prom:
+	kubectl apply -f manifests/prometheus.yaml
 
-delete-all-loki: delete-grafana delete-promtail delete-loki
+delete-prom:
+	kubectl delete -f manifests/prometheus.yaml
+
+port-forward-prom:
+	kubectl --namespace kube-system port-forward $$(kubectl get pods --namespace kube-system -l "app=prometheus,group=prometheus" -o jsonpath="{.items[0].metadata.name}") 9090
+
+deploy-all-loki: deploy-loki deploy-promtail deploy-grafana deploy-prom
+
+delete-all-loki: delete-grafana delete-promtail delete-loki delete-prom
 
 
 .PHONY: build-sample-app \

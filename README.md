@@ -24,7 +24,6 @@ The thing that actually does most of the work of collecting all the logs and sen
 
 ### Grafana
 
-
 The best thing about the Loki announcement was the Grafana Explore feature. For eons folks have been switching back and forth from grafana to data-source (prometheus, AWS cloudwatch etc) to understand why their query doesn't work. But with Grafana Explore you should be able to query your data-source from one place. Oh and you can split query into two side by side tabs which is just perfect !!
 
 
@@ -33,10 +32,13 @@ Considerations in this example:
 - Again no persistence
 - Default username password `admin:admin` (BAD !! Please don't deploy this in prod as is.)
 
+### Prometheus
+
+Prometheus set to scrape metrics from kube-state-metrics and for the cluster level metrics and any pod annotated with `prometheus.io` annotation. You do not need to port forward to prometheus any more. You can just use the grafana explorer view to search through prometheus data-source (yay !!).
 
 ## Deploy loki to cluster
 
-Deploy loki, promtail, grafana:
+Deploy loki, promtail, grafana, prometheus:
 ```
 make deploy-all-loki
 ```
