@@ -2,7 +2,7 @@
 build-sampleapp:
 	docker build sampleapp -t pnyak/grafana-loki-test
 
-push-sampleapp:
+push-sampleapp: build-sampleapp
 	docker push pnyak/grafana-loki-test
 
 deploy-sampleapp:
