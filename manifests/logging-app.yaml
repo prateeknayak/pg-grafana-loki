@@ -1,0 +1,28 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: application
+  name: logging-app
+  labels:
+    app: logging-app
+    group: loki-test
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        name: logging-app
+        group: loki-test
+    spec:
+      containers:
+        - name: logging-app-container
+          image: gcr.io/google_containers/busybox
+          args:
+          - /bin/sh
+          - -c
+          -  while :; do echo "this is a log message from loggy McLogface at $(date)"; sleep 5; done
+
+
+
