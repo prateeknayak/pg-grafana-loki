@@ -1,5 +1,3 @@
-.PHONY: build-sample-app push-sample-app deploy-sample-app delete-sample-app deploy-logging-app delete-logging-app deploy-loki delete-loki deploy-promtail delete-promtail deploy-grafana delete-grafana deploy-all-loki delete-all-loki
-
 build-sample-app:
 	docker build sampleapp -t pnyak/grafana-loki-test
 
@@ -39,3 +37,19 @@ delete-grafana:
 deploy-all-loki: deploy-loki deploy-promtail deploy-grafana
 
 delete-all-loki: delete-grafana delete-promtail delete-loki
+
+
+.PHONY: build-sample-app \
+push-sample-app \
+deploy-sample-app \
+delete-sample-app \
+deploy-logging-app \
+delete-logging-app \
+deploy-loki \
+delete-loki \
+deploy-promtail \
+delete-promtail \
+deploy-grafana \
+delete-grafana \
+deploy-all-loki \
+delete-all-loki
