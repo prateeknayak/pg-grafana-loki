@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: grafana-loki-test
   namespace: application
+  annotations:
+    prometheus.io/scrape: 'true'
   labels:
     app: grafana-loki-test
     group: loki-test
