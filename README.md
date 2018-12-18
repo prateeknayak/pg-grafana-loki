@@ -1,4 +1,4 @@
-# pg-grafan-loki
+# pg-grafana-loki
 
 *NOTE:* This repository is just meant for testing purpose. Please do not deploy these components to production as is. Please consider productionising each of the given components.
 
